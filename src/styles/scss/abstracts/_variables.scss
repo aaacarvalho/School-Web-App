@@ -1,0 +1,15 @@
+//========== Colors ==========//
+
+$main-color: #2ca17e;
+$text-color: #fff;
+$secondary-text-color: #444;
+
+//========== Table Borders ==========//
+
+$border-radius: 7px;
+$border-style: 1px solid #e4e4e4;
+
+//========== Backgrounds ==========//
+
+$main-background: linear-gradient(to left, rgba(darken($main-color, 10%), 1), rgba($main-color, 0.7));
+$active-background: linear-gradient(to left, rgba(darken($main-color, 15%), 1), rgba($main-color, 0.8));

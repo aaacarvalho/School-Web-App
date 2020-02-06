@@ -1,0 +1,26 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+}
+
+a, li, button, input[type=submit]{
+    cursor: pointer;
+}
+
+a{
+    color: inherit;
+}
+
+li{
+    list-style: none;
+}
+
+input{
+    border: none;
+}
+
+.icon{
+    color: $main-color;
+}
