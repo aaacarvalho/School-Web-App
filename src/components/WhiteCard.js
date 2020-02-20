@@ -1,5 +1,13 @@
 import React from 'react';
 
-const WhiteCard = props => <div className = 'white-card'>{props.children}</div>;
+const WhiteCard = props => {
+    
+    const classes = props.extraClasses ? props.extraClasses : '';
 
+    return(
+        <div className = {'white-card ' + classes}>
+            {props.children}
+        </div>
+    );
+}
 export default WhiteCard;

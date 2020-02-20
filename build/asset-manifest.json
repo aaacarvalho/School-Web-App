@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/school-web-app/static/css/main.286d97e5.chunk.css",
+    "main.js": "/school-web-app/static/js/main.405fe002.chunk.js",
+    "main.js.map": "/school-web-app/static/js/main.405fe002.chunk.js.map",
+    "runtime-main.js": "/school-web-app/static/js/runtime-main.06fd82ff.js",
+    "runtime-main.js.map": "/school-web-app/static/js/runtime-main.06fd82ff.js.map",
+    "static/js/2.4430d764.chunk.js": "/school-web-app/static/js/2.4430d764.chunk.js",
+    "static/js/2.4430d764.chunk.js.map": "/school-web-app/static/js/2.4430d764.chunk.js.map",
+    "index.html": "/school-web-app/index.html",
+    "precache-manifest.e15a946e1e28b9fc4c05afbadf274c01.js": "/school-web-app/precache-manifest.e15a946e1e28b9fc4c05afbadf274c01.js",
+    "service-worker.js": "/school-web-app/service-worker.js",
+    "static/css/main.286d97e5.chunk.css.map": "/school-web-app/static/css/main.286d97e5.chunk.css.map",
+    "static/js/2.4430d764.chunk.js.LICENSE": "/school-web-app/static/js/2.4430d764.chunk.js.LICENSE",
+    "static/media/logo.webp": "/school-web-app/static/media/logo.4254f227.webp"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.06fd82ff.js",
+    "static/js/2.4430d764.chunk.js",
+    "static/css/main.286d97e5.chunk.css",
+    "static/js/main.405fe002.chunk.js"
+  ]
+}

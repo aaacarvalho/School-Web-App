@@ -1,0 +1,19 @@
+.page-title{
+    flex: 0 0 100%;
+    padding: 10px;
+    width: 90%;
+
+    h2{
+        text-align: left;
+        font-size: 36px;
+    }
+}
+
+@media only screen and (min-width: $tablet) {
+
+    .page-title{
+        margin-top: 0px;
+        order: 1;
+        width: 100%;
+    }
+}

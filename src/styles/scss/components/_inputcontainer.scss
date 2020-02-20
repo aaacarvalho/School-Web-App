@@ -8,13 +8,17 @@
     color: $main-color;
     margin: 15px 0px;
 
-    input{
+    input,
+    select{
         color: $secondary-text-color;
         padding: 5px 10px;
         margin: 5px 0px;
         font-size: 20px;
         border-radius: 0px;
-        border-bottom: 1px solid $main-color;
+        border: none;
+        border-bottom: $input-border;
+        width: 100%;
+        background-color: transparent;
         width: 100%;
     }
 

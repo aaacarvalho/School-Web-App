@@ -11,6 +11,7 @@ a, li, button, input[type=submit]{
 
 a{
     color: inherit;
+    text-decoration: none;
 }
 
 li{
@@ -19,6 +20,10 @@ li{
 
 input{
     border: none;
+}
+
+select{
+    color: $secondary-text-color !important;
 }
 
 .icon{

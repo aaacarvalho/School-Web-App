@@ -1,4 +1,5 @@
 import React from 'react';
+import InputContainer from './InputContainer';
 
 const Button = props => {    
 
@@ -9,9 +10,11 @@ const Button = props => {
     };
 
     return(
-        <button className='button button--send' onClick={doAction}>
-            {props.text}
-        </button>
+        <InputContainer>
+            <button className='button button--send' onClick={doAction}>
+                {props.text}
+            </button>
+        </InputContainer>
     );
 }
 

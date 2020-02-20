@@ -1,8 +1,31 @@
 .page{
     width: 100vw;
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     background-image: $main-background;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    padding: 100px 0px 30px;
+    flex-wrap: wrap;
+}
+
+@media only screen and (min-width: $tablet){
+
+    .page{
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 110px 30px 30px;
+    }    
+}
+
+@media only screen and (min-width: $desktop){
+
+    .page{
+        padding: 30px 50px 30px 220px;
+        justify-content: flex-start;
+    }    
 }
