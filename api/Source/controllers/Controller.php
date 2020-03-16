@@ -8,10 +8,10 @@
 		{
 			header("Access-Control-Allow-Origin: *");
             header("Access-Control-Allow-Headers: *");
-            header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+            header('Access-Control-Allow-Methods: *');
 		}
 
-		public static function send(int $statusCode, array $data): void
+		public static function send(int $statusCode, $data): void
         {
         	http_response_code($statusCode);
             echo json_encode($data);
@@ -20,11 +20,13 @@
        	public static function isSuccessful(object $object): array
        	{
         	if ($object->fail()) {
+				$result["success"] = false;
+            	$result["message"] = $object->fail()->getMessage();
+          	} else {
             	$result["success"] = true;
             	$result["message"] = "Operação realizada com sucesso!";
-          	} else {
-            	$result["success"] = false;
-            	$result["messsage"] = $object->fail()->getMessage();
-          	}
+			}
+			  
+			return $result;
        	}
     }

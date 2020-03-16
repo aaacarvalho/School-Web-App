@@ -2,7 +2,7 @@
 
     /* Global settings */
 
-    define("ROOT", "http://localhost:8080/school-web-app/api");
+    define("ROOT", "http://localhost:8080/school-web-app/api"); //"https://development.davimanoel.com.br/school-web-app/api"
 
     /* Helpers */
 

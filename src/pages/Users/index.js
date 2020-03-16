@@ -4,11 +4,21 @@ import PageTitle from '../../components/PageTitle';
 import WhiteCard from '../../components/WhiteCard';
 import InputContainer from '../../components/InputContainer';
 import Button from '../../components/Button';
-import List from '../../components/List';
+import UsersList from '../../components/UsersList';
 import Api from '../../services/api';
+import validateFields from '../../functions/validateFields';
+import Loading from '../../components/Loading';
+import Message from '../../functions/Message';
 
 const Users = () => {
-    const [userData, setUserData] = useState({first_name: '', last_name: '', type: 0, username: '', password: ''});
+    const [message, setMessage] = useState('');
+    const [userData, setUserData] = useState({
+        first_name: '', 
+        last_name: '', 
+        type: 0, 
+        username: '', 
+        password: ''
+    });
 
     const nameHandler = e => {
         setUserData({...userData, first_name: e.target.value});
@@ -30,26 +40,27 @@ const Users = () => {
         setUserData({...userData, password: e.target.value});
     };
 
-    const validateFields = () => {
-        let status = true;
-
-        Object.keys(userData).map( i => {
-            if (userData[i] === "")
-                status = false;
-        });
-
-        return status;
-    }
-
-    const addUser = () => {
+    const saveUser = async () => {
         
-        if (validateFields()) {
-            const body = JSON.stringify(userData);
-            const res = Api.post('/users', body);
+        setMessage(<Loading />);
+        let displayMessage;
 
-            console.log(res);   
+        if (validateFields(userData)) {
+            const body = JSON.stringify(userData);
+            
+            try{
+                await Api.post('/users', body);
+
+                displayMessage = Message('success');
+                setMessage(displayMessage);
+            } catch {
+                displayMessage = Message('error');
+                setMessage(displayMessage);
+            }
+
         } else {
-            console.log('invalido');
+            displayMessage = Message('warning');
+            setMessage(displayMessage);
         }
     }
 
@@ -57,7 +68,12 @@ const Users = () => {
         <section className='page'>
             <Menu />
             <PageTitle title='Usuários' />
+            <WhiteCard extraClasses='full-page'>
+                <h2>Todos Usuários</h2>
+                <UsersList />
+            </WhiteCard>
             <WhiteCard>
+                <h2>Cadastrar Usuário</h2>
                 <InputContainer>
                     Nome
                     <input type='text' placeholder='Nome' onChange={e => nameHandler(e)} />
@@ -81,59 +97,10 @@ const Users = () => {
                     Senha
                     <input type='password' placeholder='Senha' onChange={e => passwordHandler(e)} />
                 </InputContainer>
-                <Button text='Enviar' Action={addUser}/>
-            </WhiteCard>
-            <WhiteCard extraClasses='extended'>
-                <h2>Todos Usuários</h2>
-                <List>
-                    <li className='long'>Nome</li>
-                    <li>Usuário</li>
-                    <li>Tipo</li>
-                    <li className='short'>Editar</li>
-                    <li className='short'>Excluir</li>
-                </List>
-                <List>
-                    <li className='long'>Aluno 1</li>
-                    <li>aluno.1</li>
-                    <li>Aluno</li>
-                    <li className='short'><i className="icon ion-md-build"></i></li>
-                    <li className='short'><i className="icon ion-md-trash"></i></li>
-                </List>
-                <List>
-                    <li className='long'>Professor 1</li>
-                    <li>professor.1</li>
-                    <li>Professor</li>
-                    <li className='short'><i className="icon ion-md-build"></i></li>
-                    <li className='short'><i className="icon ion-md-trash"></i></li>
-                </List>
-                <List>
-                    <li className='long'>Administrador 1</li>
-                    <li>Administrador.1</li>
-                    <li>Administrador</li>
-                    <li className='short'><i className="icon ion-md-build"></i></li>
-                    <li className='short'><i className="icon ion-md-trash"></i></li>
-                </List>
-                <List>
-                    <li className='long'>Professor 2</li>
-                    <li>professor.2</li>
-                    <li>Professor</li>
-                    <li className='short'><i className="icon ion-md-build"></i></li>
-                    <li className='short'><i className="icon ion-md-trash"></i></li>
-                </List>
-                <List>
-                    <li className='long'>Professor 3</li>
-                    <li>professor.3</li>
-                    <li>Professor</li>
-                    <li className='short'><i className="icon ion-md-build"></i></li>
-                    <li className='short'><i className="icon ion-md-trash"></i></li>
-                </List>
-                <List>
-                    <li className='long'>Aluno 2</li>
-                    <li>Aluno.1</li>
-                    <li>Aluno</li>
-                    <li className='short'><i className="icon ion-md-build"></i></li>
-                    <li className='short'><i className="icon ion-md-trash"></i></li>
-                </List>
+                {
+                    message
+                }
+                <Button text='Enviar' Action={saveUser}/>
             </WhiteCard>
         </section>
     );

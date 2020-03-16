@@ -3,7 +3,9 @@ import InputContainer from './InputContainer';
 
 const Button = props => {    
 
-    const doAction = () => {
+    const doAction = e => {
+        e.preventDefault();
+        
         if (props.Action) {
             props.Action();
         }

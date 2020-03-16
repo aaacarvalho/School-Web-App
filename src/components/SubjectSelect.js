@@ -1,18 +1,25 @@
 import React from 'react';
 import InputContainer from './InputContainer';
 
-const SubjectSelect = () => {
+const SubjectSelect = props => {
+
+    const renderSubjects = () => {
+        let subjects = '';
+
+        if (props.subjects) {
+            subjects = props.subjects.map(el => <option key={el.id} value={el.id}>{el.name}</option>)
+        }
+
+        return subjects;
+    }
 
     return(
         <InputContainer>
             Matéria
-            <select>
-                <option>Selecione...</option>
-                <option>Disciplina 1</option>
-                <option>Disciplina 2</option>
-                <option>Disciplina 3</option>
-                <option>Disciplina 4</option>
-                <option>Disciplina 5</option>
+            <select onChange={props.change}>
+                {
+                    renderSubjects()
+                }
             </select>
         </InputContainer>
     );

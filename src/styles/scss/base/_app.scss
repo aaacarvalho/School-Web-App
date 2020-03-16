@@ -29,3 +29,28 @@ select{
 .icon{
     color: $main-color;
 }
+
+.loading{
+    height: 100px;
+    width: 100px;
+}
+
+.message{
+    padding: 10px;
+    font-size: 18px;
+    color: $text-color;
+    text-align: center;
+
+    &--success{
+        background-color: $success-color;
+    }
+
+    &--error{
+        background-color: $error-color;
+    }
+
+    &--warning{
+        background-color: $warning-color;
+        color: $secondary-text-color;
+    }
+}

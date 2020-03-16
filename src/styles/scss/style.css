@@ -33,6 +33,31 @@ select {
   color: #2ca17e;
 }
 
+.loading {
+  height: 100px;
+  width: 100px;
+}
+
+.message {
+  padding: 10px;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+}
+
+.message--success {
+  background-color: #07941a;
+}
+
+.message--error {
+  background-color: #960303;
+}
+
+.message--warning {
+  background-color: #f1dd20;
+  color: #444;
+}
+
 * {
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -47,6 +72,7 @@ select {
   margin-top: 30px;
   height: auto;
   width: 90%;
+  text-align: center;
 }
 
 .white-card h2 {
@@ -56,9 +82,36 @@ select {
   font-weight: 300;
 }
 
+.white-card h3 {
+  color: #2ca17e;
+}
+
 .extended {
   width: 90%;
   overflow-x: auto;
+}
+
+.full-page {
+  overflow-x: auto;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex .input-container {
+  width: 100%;
 }
 
 @media only screen and (min-width: 768px) {
@@ -79,6 +132,24 @@ select {
         -ms-flex-order: 2;
             order: 2;
   }
+  .full-page {
+    width: 100%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+  .flex {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .flex .input-container {
+    width: 30%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 30%;
+            flex: 0 0 30%;
+  }
 }
 
 @media only screen and (min-width: 1140px) {
@@ -98,6 +169,12 @@ select {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
+  }
+  .full-page {
+    width: 100%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
   }
 }
 
@@ -352,12 +429,13 @@ select {
       justify-content: space-around;
   border: 1px solid #e4e4e4;
   border-bottom: none;
-  min-width: 600px;
+  min-width: 1000px;
 }
 
 .list li {
   color: #444;
   padding: 10px 0px;
+  max-width: 220px;
   text-align: center;
   -webkit-box-flex: 2;
       -ms-flex: 2 0 0px;
@@ -372,9 +450,9 @@ select {
 }
 
 .list .long {
-  -webkit-box-flex: 4;
-      -ms-flex: 4 0 0px;
-          flex: 4 0 0;
+  -webkit-box-flex: 3;
+      -ms-flex: 3 0 0px;
+          flex: 3 0 0;
 }
 
 .list .short {
@@ -395,9 +473,132 @@ select {
   border-bottom: 1px solid #e4e4e4;
 }
 
+.header li {
+  font-weight: bold;
+  background-color: #2ca17e;
+  color: #fff;
+}
+
+.confirmed {
+  color: #fff !important;
+  background-color: #2ca17e;
+  font-weight: bold;
+}
+
+.confirmed li, .confirmed select {
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.confirmed option {
+  color: #444;
+}
+
+.reserved {
+  background-color: #f1dd20;
+  font-weight: bold;
+}
+
+.no-data {
+  font-size: 22px;
+  text-align: center;
+  padding: 15px 0px;
+}
+
 @media only screen and (min-width: 1140px) {
   .list {
     overflow: auto;
+  }
+}
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow-y: auto;
+}
+
+.modal .white-card {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  max-height: 45vh;
+}
+
+.modal .white-card h2 {
+  font-size: 24px;
+}
+
+.modal .white-card textarea {
+  width: 100%;
+  resize: none;
+  margin: 20px 0px;
+  padding: 10px;
+  border: 1px solid #e4e4e4;
+  overflow-y: auto;
+  max-height: 120px;
+}
+
+.modal .white-card p {
+  margin: 5px 0px;
+  padding: 5px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 1.5em;
+  overflow-y: auto;
+  max-height: 120px;
+  border: 1px solid #e4e4e4;
+}
+
+.modal .input-container {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+@media only screen and (min-width: 1140px) {
+  .modal {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .modal .white-card {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 45%;
+            flex: 0 0 45%;
+    max-height: 60vh;
+    height: 60vh;
+    overflow-y: auto;
+  }
+  .modal .white-card textarea {
+    height: 200px;
+    max-height: 130px;
+  }
+  .modal .white-card p:not(.message) {
+    height: 250px;
+    max-height: 250px;
   }
 }
 

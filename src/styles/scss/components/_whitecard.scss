@@ -7,6 +7,7 @@
     margin-top: 30px;
     height: auto;
     width: 90%;
+    text-align: center;
 
     h2{
         color: $main-color;
@@ -14,11 +15,30 @@
         font-size: 36px;
         font-weight: 300;
     }
+
+    h3{
+        color: $main-color;
+    }
 }
 
 .extended{
     width: 90%;
     overflow-x: auto;
+}
+
+.full-page{
+    overflow-x: auto;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .input-container{
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: $tablet) {
@@ -33,6 +53,20 @@
         max-width: 100%;
         order: 2;
     }
+
+    .full-page{
+        width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .flex{
+        flex-direction: row;
+        
+        .input-container{
+            width: 30%;
+            flex: 0 0 30%;
+        }
+    }
 }
 
 @media only screen and (min-width: $desktop) {
@@ -46,5 +80,10 @@
     .extended{
         flex: 0 0 65%;
         order: 3;
+    }
+
+    .full-page{
+        width: 100%;
+        flex: 0 0 100%;
     }
 }

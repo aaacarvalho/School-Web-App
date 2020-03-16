@@ -1,18 +1,24 @@
 import React from 'react';
 import InputContainer from './InputContainer';
 
-const ClassroomSelect = () => {
+const ClassroomSelect = props => {
+
+    const renderClassrooms = () => {
+        let classrooms = '';
+
+        if (props.classrooms.length)
+            classrooms = props.classrooms.map(el => <option key={el.id}>{el.name}</option>)
+
+        return classrooms;
+    }
 
     return(
         <InputContainer>
             Sala de aula
-            <select>
-                <option>Selecione...</option>
-                <option>Sala 1</option>
-                <option>Sala 2</option>
-                <option>Sala 3</option>
-                <option>Sala 4</option>
-                <option>Sala 5</option>
+            <select onChange={props.change}>
+                {
+                    renderClassrooms()
+                }
             </select>
         </InputContainer>
     );

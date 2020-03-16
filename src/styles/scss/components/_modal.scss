@@ -1,0 +1,72 @@
+.modal{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+
+    .white-card{
+        flex: 0 0 30%;
+        order: 1;
+        max-height: 45vh;
+
+        h2{
+            font-size: 24px;
+        }
+
+        textarea{
+            width: 100%;
+            resize: none;
+            margin: 20px 0px;
+            padding: 10px;
+            border: $border-style;
+            overflow-y: auto;
+            max-height: 120px;
+        }
+
+        p{  
+            margin: 5px 0px;
+            padding: 5px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            line-height: 1.5em;
+            overflow-y: auto;
+            max-height: 120px;
+            border: $border-style;
+        }
+    }
+
+    .input-container{
+        order: 2;
+    }
+}
+
+@media only screen and (min-width: $desktop) {
+    .modal {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .white-card{
+            flex: 0 0 45%;
+            max-height: 60vh;
+            height: 60vh;
+            overflow-y: auto;
+
+            textarea{
+                height: 200px;
+                max-height: 130px;
+            }
+
+            p:not(.message){
+                height: 250px;
+                max-height: 250px;
+            }
+        }
+    }
+}
